@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Queue;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CustomerResource extends JsonResource
+class ServiceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,8 @@ class CustomerResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'phone' => $this->phone,
-            'data' => QueueResource::collection(Queue::where('customer_id', $this->id)->get())
+            'slug' => $this->slug,
+            'data' => QueueResource::collection(Queue::where('service_id', $this->id)->get())
         ];
     }
 }

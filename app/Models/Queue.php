@@ -8,14 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Queue extends Model
 {
     use HasFactory;
-
-    public function toArray()
-    {
-        return [
-            'id' => $this->id,
-            'customer_id' => Customer::where('id', $this->id)->first()->pluck('name'),
-        ];
-    }
+    protected $guarded = [];
 
     public function service()
     {
